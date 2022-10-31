@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="form.css">
+</head>
+<body>
+    
+    <div class="form">
+    <form id="form" onsubmit="return validateForm()" method="post">
+        <label>Email : </label> <input type="text" name="email"><br>
+        <label>Password : </label> <input type="text" name="pw"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function validateForm(){
+            var email = document.forms["form"]["email"].value;
+            var pw = document.forms["form"]["pw"].value;
+
+            if (email == "" && pw == ""){
+                alert('Isi alamat email dan password anda');
+                return false;
+            } else if (email == ""){
+                alert ('Isi Email anda!');
+                return false;
+            } else if (pw == ""){
+                alert ('Isi Password anda!');
+                return false;
+            } else {
+                alert ('Terimakasih Sudah Login');
+                clearForm();
+            }
+        }
+        function clearForm(){
+            document.getElementById("form").reset();
+        }
+    </script>
+    </div>
+</body>
+</html>
